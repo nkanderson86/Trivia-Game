@@ -13,11 +13,13 @@
 </head>
 
 <body>
-    <div class="jumbotron jumbotron-fluid" id="instructions">
+    <div class="jumbotron jumbotron-fluid text-center" id="instructions">
         <div class="container">
-            <h1 class="display-4">Trivia game</h1>
+            <h1 class="display-4">Hip Hop Trivia</h1>
             <p class="lead">Instructions for the game will go here.</p>
-            <button type="button" class="btn btn-lg btn-secondary" id="startBtn">Start</button>
+            <div class="row justify-content-center">
+                <button type="button" class="btn btn-lg btn-secondary" id="startBtn">Start</button>
+            </div>
         </div>
     </div>
 
@@ -55,6 +57,7 @@
                 Your stats
             </div>
             <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="timer">Time Remaining:</li>
                 <li class="list-group-item" id="ques-remain">Questions Remaining:</li>
                 <li class="list-group-item" id="right">Correct Answers:</li>
                 <li class="list-group-item" id="wrong">Incorrect Answers:</li>
@@ -64,6 +67,15 @@
     </div>
     <div class="row justify-content-center mt-4">
         <button type="button" class="btn btn-lg btn-secondary" id="resetBtn">Try Again!</button>
+    </div>
+
+    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+        aria-hidden="true" id="aModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                ...
+            </div>
+        </div>
     </div>
 
 

@@ -1,16 +1,16 @@
 :root {
-    background-image: url(/Assets/Images/background.png)
+    background-image: url(../Images/background.png);
 }
 
 .cards {
-    background-image: url(/Assets/Images/background.png);
+    background-image: url(../Images/background.png);
 }
 
 .jumbotron {
-    background-image: url(/Assets/Images/background.png);
+    background-image: url(../Images/background.png);
 }
 
 body {
-    background-image: url(/Assets/Images/background.png);
+    background-image: url(../Images/background.png);
     justify-content: center;
 }

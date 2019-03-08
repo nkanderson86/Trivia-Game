@@ -44,8 +44,8 @@ var triviaGame = {
         correctAnswer: 2
     }, {
         question: "Suge Knight famously dangled which rapper over a balcony?",
-        answers: ["Eazy-E", "Ice Cube", "Vanilla Ice", "Dr. Dre"],
-        correctAnswer: 1
+        answers: ["Eazy-E", "Ice Cube", "Dr. Dre", "Vanilla Ice"],
+        correctAnswer: 3
     }, {
         question: "What film starred Nas & DMX in lead roles?",
         answers: ["Cool Runnings", "Strait Outta Compton", "Belly", "ATL"],
@@ -59,7 +59,7 @@ var triviaGame = {
     answered: false, //variable to stop timer if an answer is clicked
     questionsRemaining: 0,
     correctAnswer: 1,
-    timeRemaining: 15,
+    timeRemaining: 5,
     currentQuestion: " ",
     answers: "",
     i: 0,
@@ -103,9 +103,9 @@ var triviaGame = {
     checkAnswer: function (value) {
         if (value === this.correctAnswer) {
             this.numRight++
-            // alert("You got it right!") // add message with a timer here, 
+            alert("You got it right!") // add message with a timer here, 
         } else {
-            // alert("Close! But, no cigar") //add same timer here 
+            alert("Close! But, no cigar") //add same timer here 
             this.numWrong++
         }
         this.incrementQ();
@@ -123,11 +123,18 @@ var triviaGame = {
         $("#right").text("Correct Answers " + this.numRight);
         $("#wrong").text("Incorrect Answers " + this.numWrong);
         $("#na").text("Didn't Answer: " + this.didntAnswer)
+        $("#timer").text("Time Remaining: " + this.timeRemaining)
     },
 
-    // timer: function () { },
+    startTimer: function () {
 
-    // resetRound: function () { },
+
+
+    },
+
+    //resetTimer: function () { },
+
+
 
 }
 
