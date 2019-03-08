@@ -10,61 +10,68 @@ After shorter timer, next question appears
 */
 
 var triviaGame = {
+    qBank: [{
+        question: "Can I Kick It?",
+        answers: ["Yes you can!", "nah", "HELL NAH", "Sure"],
+        correctAnswer: 0
+    }, {
+        question: "Which record label featured artists such as Dr. Dre, Tupac, and Snoop Dogg?",
+        answers: ["Bad Boy", "The Dungeon Family", "Roc-A-Fella", "Death Row Records"],
+        correctAnswer: 3
+    }, {
+        question: "How old was Biggie at the time of his death?",
+        answers: ["28", "24", "22", "25"],
+        correctAnswer: 1
+    }, {
+        question: "Which rapper was NOT a member of De La Soul",
+        answers: ["Maseo", "Posdnuos", "Q-Tip", "Trugoy"],
+        correctAnswer: 2
+    }, {
+        question: "Complete these lyrics: 'Now in my younger days I used to sport a shag / When I went to school____________'",
+        answers: ["I carried lunch in a bag", "I flunked all my exams", "I always had a lot of swag", "I brought the biscuit with the mag"],
+        correctAnswer: 0
+    }, {
+        question: "Which rapper was a member of Wu-Tang Clan?",
+        answers: ["Cappadonna", "Jadakiss", "Nas", "Inspectah Deck"],
+        correctAnswer: 3
+    }, {
+        question: "What was the name of Fresh Prince's DJ?",
+        answers: ["Funkmasta Flex", "Jazzy Jeff", "King Coopa", "Madlib"],
+        correctAnswer: 1
+    }, {
+        question: "'3 Stacks' is the nickname of which rapper?",
+        answers: ["Cee-Lo", "Trick Daddy", "Andre 3000", "Killer Mike"],
+        correctAnswer: 2
+    }, {
+        question: "Suge Knight famously dangled which rapper over a balcony?",
+        answers: ["Eazy-E", "Ice Cube", "Vanilla Ice", "Dr. Dre"],
+        correctAnswer: 1
+    }, {
+        question: "What film starred Nas & DMX in lead roles?",
+        answers: ["Cool Runnings", "Strait Outta Compton", "Belly", "ATL"],
+        correctAnswer: 2
+    }
+    ],
+
     numRight: 0,
     numWrong: 0,
     didntAnswer: 0, //variable to store number of unanswered questions if time expires
     answered: false, //variable to stop timer if an answer is clicked
-    questionsRemaining: 9,
+    questionsRemaining: 0,
     correctAnswer: 1,
     timeRemaining: 15,
     currentQuestion: " ",
     answers: "",
     i: 0,
 
-    qBank: [{
-        question: "Can I Kick It?",
-        answers: ["Yes you can!", "nah", "HELL NAH", "Why certainly..."],
-        correctAnswer: 0
-    }, {
-        question: "How Many?!",
-        answers: ["12", "14", "more", "less"],
-        correctAnswer: 3
-    }, {
-        question: "How Much?!",
-        answers: ["12", "14", "more", "less"],
-        correctAnswer: 1
-    }, {
-        question: "How Come?!",
-        answers: ["12", "14", "more", "less"],
-        correctAnswer: 2
-    }, {
-        question: "Can I Kick It?",
-        answers: ["Yes you can!", "nah", "HELL NAH", "Why certainly..."],
-        correctAnswer: 0
-    }, {
-        question: "How Many?!",
-        answers: ["12", "14", "more", "less"],
-        correctAnswer: 3
-    }, {
-        question: "How Much?!",
-        answers: ["12", "14", "more", "less"],
-        correctAnswer: 1
-    }, {
-        question: "How Come?!",
-        answers: ["12", "14", "more", "less"],
-        correctAnswer: 2
-    }, {
-        question: "How Much?!",
-        answers: ["12", "14", "more", "less"],
-        correctAnswer: 1
-    }, {
-        question: "How Come?!",
-        answers: ["12", "14", "more", "less"],
-        correctAnswer: 2
-    }
-    ],
+
 
     startGame: function () {
+        this.i = 0;
+        this.questionsRemaining = this.qBank.length - 1;
+        this.numRight = 0;
+        this.numWrong = 0;
+        this.didntAnswer = 0;
         this.loadQ();
         this.updateScreen();
 
