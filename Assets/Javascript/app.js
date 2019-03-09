@@ -56,13 +56,13 @@ var triviaGame = {
     numRight: 0,
     numWrong: 0,
     didntAnswer: 0, //variable to store number of unanswered questions if time expires
-    answered: false, //variable to stop timer if an answer is clicked
     questionsRemaining: 0,
     correctAnswer: 1,
-    timeRemaining: 5,
+    timeRemaining: 8,
     currentQuestion: " ",
     answers: "",
     i: 0,
+    clock: 0,
 
 
 
@@ -83,6 +83,7 @@ var triviaGame = {
         this.answers = this.qBank[this.i].answers;
         this.correctAnswer = this.qBank[this.i].correctAnswer;
         this.updateScreen();
+        this.questionTimer();
 
     },
 
@@ -94,22 +95,37 @@ var triviaGame = {
         }
         else {
             $("#question-card").hide();
-            $("#resetBtn").show();
+            $("#resetBtn").removeClass('d-none');
             alert("You ran out of questions!")
         }
 
     },
 
     checkAnswer: function (value) {
+        clearInterval(this.clock);
+
         if (value === this.correctAnswer) {
             this.numRight++
-            alert("You got it right!") // add message with a timer here, 
-        } else {
-            alert("Close! But, no cigar") //add same timer here 
+            alert("You're Right! Keep it up.")
+            // let rightMessage = "You're Right!"
+            // this.simplePopup(rightMessage)
+        } else if (value === "timeout") {
+            this.didntAnswer++
+            alert("You ran out of time! Don't sleep on these questions!!")
+            // this.simplePopup("You ran out of time!")
+        }
+        else {
+            alert("Ain't no half steppin', you whiffed. Try Again!")
+            // simplePopup("Close! But, no cigar")
             this.numWrong++
         }
-        this.incrementQ();
-        this.updateScreen();
+        setTimeout(() => {
+            this.incrementQ();
+            this.updateScreen();
+            this.timeRemaining = 8;
+        }, 2500)
+
+        // dynamically create modal to 
 
     },
 
@@ -126,17 +142,20 @@ var triviaGame = {
         $("#timer").text("Time Remaining: " + this.timeRemaining)
     },
 
-    startTimer: function () {
+    questionTimer: function () {
+        this.clock = setInterval(() => {
+            this.timeRemaining -= 1;
+            $("#timer").text("Time Remaining: " + this.timeRemaining);
+            if (this.timeRemaining === 0) {
+                this.checkAnswer("timeout")
+            }
+        }, 1000)
 
 
 
     },
-
-    //resetTimer: function () { },
-
-
-
 }
 
-triviaGame.startGame();
+
+
 

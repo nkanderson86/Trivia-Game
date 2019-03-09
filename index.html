@@ -7,6 +7,7 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="Assets/CSS/reset.css">
+    <link href="/node_modules/simple-popup-modal/dist/jquery.simple-popup.min.css rel=" stylesheet" type="text/" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="Assets/CSS/style.css">
@@ -23,9 +24,21 @@
         </div>
     </div>
 
+    <div class="d-none " id="right-modal" title="Answer">
+        <p>Nailed it! The correct answer is <span id="showAnswer"></span></p>
+    </div>
+    <div class="d-none" id="wrong-modal" title="Answer">
+        <p>Swing and a miss! The correct answer is <span id="showAnswer"></span></p>
+    </div>
+    <div class="d-none" id="time-modal" title="Answer">
+        <p>Don't sleep on these questions! You ran out of time, the correct answer was <span id="showAnswer"></span></p>
+    </div>
 
 
-    <div class="row justify-content-center mt-5 cards" id="question-card">
+
+
+
+    <div class="row justify-content-center mt-5 cards d-none" id="question-card">
         <div class="col-8">
             <div class="card 80-vw">
                 <h5 class="card-header bg-secondary text-white">Question:</h5>
@@ -51,7 +64,7 @@
             </div>
         </div>
     </div>
-    <div class="row stats card-background cards justify-content justify-content-center" id="stats">
+    <div class="row stats card-background cards justify-content justify-content-center d-none" id="stats">
         <div class="card mt-5" style="width: 15rem;">
             <div class="card-header bg-secondary text-white">
                 Your stats
@@ -66,17 +79,10 @@
         </div>
     </div>
     <div class="row justify-content-center mt-4">
-        <button type="button" class="btn btn-lg btn-secondary" id="resetBtn">Try Again!</button>
+        <button type="button" class="btn btn-lg btn-secondary d-none" id="resetBtn">Try Again!</button>
     </div>
 
-    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-        aria-hidden="true" id="aModal">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                ...
-            </div>
-        </div>
-    </div>
+
 
 
 
@@ -97,6 +103,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
+    <script src="/node_modules/simple-popup-modal/dist/jquery.simple-popup.min.js"></script>
     <script src="assets/javascript/app.js"></script>
 
     <script>
@@ -109,20 +116,14 @@
 
         $("#startBtn").click(function () {
             $("#instructions").hide();
-            $("#question-card").show();
-            $("#stats").show();
+            $("#question-card").removeClass('d-none');
+            $("#stats").removeClass('d-none');
             triviaGame.startGame();
         })
 
-        $(document).ready(function () {
-            $("#question-card").hide();
-            $("#stats").hide();
-            $("#resetBtn").hide();
-        });
-
         $("#resetBtn").click(function () {
             $("#question-card").show();
-            $("#resetBtn").hide();
+            $("#resetBtn").addClass('d-none');
             triviaGame.startGame();
 
         })
