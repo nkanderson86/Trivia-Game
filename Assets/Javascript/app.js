@@ -9,8 +9,6 @@ A diff timer begins
 After shorter timer, next question appears 
 */
 
-
-
 var triviaGame = {
 
     // I wrote an arry of question objects to pull from -----------------------------------------------------------------------//

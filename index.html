@@ -42,10 +42,6 @@
         <p>Don't sleep on these questions! You ran out of time, the correct answer was <span id="showAnswer"></span></p>
     </div>
 
-
-
-
-
     <div class="row justify-content-center mt-5 cards d-none" id="question-card">
         <div class="col-8">
             <div class="card 80-vw">
@@ -90,17 +86,6 @@
         <button type="button" class="btn btn-lg btn-secondary d-none" id="resetBtn">Try Again!</button>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -112,12 +97,10 @@
         crossorigin="anonymous"></script>
 
 
-    <script src="assets/Javascript/app.js"></script>
-
+    <script src="Assets/Javascript/app.js"></script>
     <script>
 
         // On click functions for the buttons in the game, one for answer buttons, start, and reset button-----------------------------------------------------------------------//
-
 
         $(".btn-a").click(function () {
             triviaGame.checkAnswer(parseInt($(this).attr("value")));
@@ -137,13 +120,7 @@
             triviaGame.startGame();
 
         })
-
-
-
-
-
     </script>
-
 </body>
 
 </html>
