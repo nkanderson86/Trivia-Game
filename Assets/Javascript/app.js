@@ -9,10 +9,14 @@ A diff timer begins
 After shorter timer, next question appears 
 */
 
+
+
 var triviaGame = {
+
+    // I wrote an arry of question objects to pull from -----------------------------------------------------------------------//
     qBank: [{
         question: "Can I Kick It?",
-        answers: ["Yes you can!", "nah", "HELL NAH", "Sure"],
+        answers: ["Yes you can!", "Nah", "HELL NAH", "Perhaps"],
         correctAnswer: 0
     }, {
         question: "Which record label featured artists such as Dr. Dre, Tupac, and Snoop Dogg?",
@@ -53,6 +57,8 @@ var triviaGame = {
     }
     ],
 
+
+    // global variable declarations-----------------------------------------------------------------------//
     numRight: 0,
     numWrong: 0,
     didntAnswer: 0, //variable to store number of unanswered questions if time expires
@@ -66,6 +72,7 @@ var triviaGame = {
 
 
 
+    // startGame function that gets called upon clicking either the start or reset button.  Resets variables, loads first question, and updates screen with user/question info-----------------------------------------------------------------------//
     startGame: function () {
         this.i = 0;
         this.questionsRemaining = this.qBank.length - 1;
@@ -77,6 +84,7 @@ var triviaGame = {
 
     },
 
+    // pulls question from array, loads info to screen and starts timer.-----------------------------------------------------------------------//
     loadQ: function () {
 
         this.currentQuestion = this.qBank[this.i].question;
@@ -87,6 +95,7 @@ var triviaGame = {
 
     },
 
+    // I call this function to move through my array, I use the questionsRemaining variable to tell when there are none left.  I feel like this one could use a refactor since I have to hard code how many questions there are to start.  Once you run out of questions, I hit the question card and show the reset button.-----------------------------------------------------------------------//
     incrementQ: function () {
         if (this.questionsRemaining > 0) {
             this.i++;
@@ -100,6 +109,8 @@ var triviaGame = {
         }
 
     },
+
+    // Logic to check if answer is corrent, wrong, or no answer was submitted and alert the user.  There's a 2.5 second timeout function set before the screen updates with the next question.  I want to get a popup modal working here for the alerts but as is I couln't get the package I installed working. -----------------------------------------------------------------------//
 
     checkAnswer: function (value) {
         clearInterval(this.clock);
@@ -125,10 +136,9 @@ var triviaGame = {
             this.timeRemaining = 8;
         }, 2500)
 
-        // dynamically create modal to 
-
     },
 
+    // Pretty strait forward here. -----------------------------------------------------------------------//
     updateScreen: function () {
         $("#a-one").text(this.answers[0]);
         $("#a-two").text(this.answers[1]);
@@ -142,6 +152,7 @@ var triviaGame = {
         $("#timer").text("Time Remaining: " + this.timeRemaining)
     },
 
+    // Function to count down my timeRemaining variable in one second decrements.-----------------------------------------------------------------------//
     questionTimer: function () {
         this.clock = setInterval(() => {
             this.timeRemaining -= 1;

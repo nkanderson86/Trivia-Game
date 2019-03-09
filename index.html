@@ -4,8 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Hip Hop Trivia</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Shrikhand" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" media="screen" href="Assets/CSS/reset.css">
     <link href="/node_modules/simple-popup-modal/dist/jquery.simple-popup.min.css rel=" stylesheet" type="text/" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -16,8 +18,14 @@
 <body>
     <div class="jumbotron jumbotron-fluid text-center" id="instructions">
         <div class="container">
-            <h1 class="display-4">Hip Hop Trivia</h1>
-            <p class="lead">Instructions for the game will go here.</p>
+            <h1 class="display-4 font-weight-bold gameName">Hip Hop Trivia</h1>
+            <br>
+            <p class="lead">
+                <h3>AYYYYYYYEEEEEE, welcome to hip hop trivia. Test your hip hop knowledge with this interactive
+                    quiz. You have 8 seconds to answer each of the 10 questions. You will know right away whether you
+                    got it
+                    right, or you were fakin' the funk. Check it out, peaaaaaace. </h3>
+            </p>
             <div class="row justify-content-center">
                 <button type="button" class="btn btn-lg btn-secondary" id="startBtn">Start</button>
             </div>
@@ -107,6 +115,8 @@
     <script src="assets/javascript/app.js"></script>
 
     <script>
+
+        // On click functions for the buttons in the game, one for answer buttons, start, and reset button-----------------------------------------------------------------------//
 
 
         $(".btn-a").click(function () {

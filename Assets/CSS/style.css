@@ -14,3 +14,13 @@ body {
     background-image: url(../Images/background.png);
     justify-content: center;
 }
+
+.gameName {
+    font-family: 'Pacifico', cursive;
+    color: rgb(47, 79, 79)
+}
+
+h3 {
+    font-family: 'Shrikhand', cursive;
+    color: rgb(47, 79, 79)
+}
